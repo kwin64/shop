@@ -1,7 +1,10 @@
+import './Header.scss';
+
 const Header = () => {
   return (
-    <div>
-      <div>header</div>
+    <div className="header">
+      <div>Logo</div>
+      <div>Basket</div>
     </div>
   );
 };

@@ -1,3 +1,16 @@
-.schedule {
-  border: 1px solid fuchsia;
+.wrapperSchedule {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 5px;
+
+  .title {
+    margin-bottom: 5px;
+    font-size: 20px;
+  }
+
+  .schedule {
+    height: 100%;
+    letter-spacing: 1px;
+    font-size: 17px;
+  }
 }

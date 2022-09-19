@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   margin: 5px 5px;
-  position: relative;
 
   .title {
     margin-bottom: 5px;
@@ -18,13 +17,11 @@
       height: 155px;
     }
     .contacts {
-      position: absolute;
-      top: 0;
-      right: 0;
+      padding: 0 10px;
       width: 280px;
       height: 100%;
       letter-spacing: 1px;
-      line-height: 28px;
+      line-height: 26px;
     }
   }
 }

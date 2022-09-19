@@ -1,11 +1,16 @@
-.contacts {
-  border: 1px solid red;
+.socials {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin: 5px 5px;
+  .title {
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
   .wrapperIcons {
-    border: 1px solid;
     display: flex;
-    width: 200px;
+    align-items: center;
+    gap: 20px;
     img {
       width: 50px;
       height: 50px;

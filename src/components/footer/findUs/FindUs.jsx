@@ -3,12 +3,12 @@ import './FindUs.scss';
 const FindUs = ({ dataFindUs }) => {
   return (
     <div className="findUs">
-      <div className="title">{dataFindUs.title}</div>
+      <h1 className="title">{dataFindUs.title}</h1>
       <div className="description">
         <div className="map">map</div>
         <div className="contacts">
           {dataFindUs.contacts.map((contacts, index) => {
-            return <div key={index}>{contacts}</div>;
+            return <p key={index}>{contacts}</p>;
           })}
         </div>
       </div>

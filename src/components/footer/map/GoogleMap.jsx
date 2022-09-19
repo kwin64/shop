@@ -4,12 +4,11 @@ import './GoogleMap.scss';
 
 const containerStyle = {
   width: '100%',
-  height: '155px',
+  height: '145px',
 };
 
 export const Map = ({ center }) => {
   const mapRef = useRef(undefined);
-
   const onLoad = useCallback(function callback(map) {
     mapRef.current = map;
   }, []);
@@ -20,7 +19,7 @@ export const Map = ({ center }) => {
 
   return (
     <div className="">
-      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}></GoogleMap>
+      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={15}></GoogleMap>
     </div>
   );
 };

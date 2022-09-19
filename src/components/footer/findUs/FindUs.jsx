@@ -3,14 +3,16 @@ import { useJsApiLoader } from '@react-google-maps/api';
 import './FindUs.scss';
 
 const defaultCenter = {
-  lat: -3.745,
-  lng: -38.523,
+  lat: 42.148,
+  lng: -72.60077,
 };
 
 const FindUs = ({ dataFindUs }) => {
+  const API_KEY = process.env.REACT_APP_API_KEY;
+
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: 'YOUR_API_KEY',
+    googleMapsApiKey: API_KEY,
   });
 
   return (

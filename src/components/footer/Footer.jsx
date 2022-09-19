@@ -32,8 +32,11 @@ const dataFooter = {
   },
   socials: {
     title: 'We are social',
-    socials: ['instagram.com', 'facebook.com', 'twitter.com'],
-    iconsSocials: [instagramIcon, facebookIcon, twitterIcon],
+    socials: [
+      { [instagramIcon]: 'http://instagram.com' },
+      { [facebookIcon]: 'http://facebook.com' },
+      { [twitterIcon]: 'http://twitter.com' },
+    ],
   },
 };
 const Footer = () => {
@@ -41,7 +44,7 @@ const Footer = () => {
     <div className="footer">
       <Schedule dataSchedule={dataFooter.dataSchedule} />
       <FindUs dataFindUs={dataFooter.findUs} />
-      <Contacts dataContacts={dataFooter.socials} />
+      <Contacts dataSocials={dataFooter.socials} />
     </div>
   );
 };

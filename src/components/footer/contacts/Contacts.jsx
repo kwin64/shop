@@ -1,12 +1,21 @@
+import { Link } from 'react-router-dom';
 import './Contacts.scss';
 
-const Contacts = ({ dataContacts }) => {
+const Contacts = ({ dataSocials }) => {
   return (
     <div className="socials">
-      <h1 className="title">{dataContacts.title}</h1>
+      <h1 className="title">{dataSocials.title}</h1>
       <div className="wrapperIcons">
-        {dataContacts.iconsSocials.map((socials, index) => {
-          return <img key={index} src={socials} alt="" />;
+        {dataSocials.socials.map((socials, index) => {
+          return (
+            <a
+              key={index}
+              href={`${Object.values(socials).toString()}`}
+              target="_blank"
+              rel="noreferrer">
+              <img key={index} src={Object.keys(socials)[0]} alt="" />
+            </a>
+          );
         })}
       </div>
     </div>

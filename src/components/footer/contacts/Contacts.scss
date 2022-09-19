@@ -1,0 +1,14 @@
+.contacts {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  .wrapperIcons {
+    border: 1px solid;
+    display: flex;
+    width: 200px;
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}

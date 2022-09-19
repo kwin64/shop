@@ -1,8 +1,8 @@
-// import './Footer.scss';
+import './Schedule.scss';
 
 const Schedule = ({ dataSchedule }) => {
   return (
-    <div className="contacts">
+    <div className="schedule">
       <h1>{dataSchedule.title}</h1>
       {dataSchedule.days.map((days, index) => {
         return (

@@ -36,7 +36,6 @@ const dataFooter = {
     iconsSocials: [instagramIcon, facebookIcon, twitterIcon],
   },
 };
-
 const Footer = () => {
   return (
     <div className="footer">

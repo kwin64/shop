@@ -1,0 +1,26 @@
+.findUs {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 5px;
+
+  .title {
+    margin-bottom: 5px;
+    font-size: 20px;
+  }
+  .description {
+    display: flex;
+    flex-direction: row;
+    .map {
+      border: 1px solid;
+      width: 380px;
+      height: 150px;
+    }
+    .contacts {
+      height: 100%;
+      padding: 5px;
+      letter-spacing: 1px;
+      line-height: 23px;
+      padding-left: 20px;
+    }
+  }
+}

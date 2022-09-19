@@ -1,18 +1,14 @@
-// import './Footer.scss';
+import './Contacts.scss';
 
 const Contacts = ({ dataContacts }) => {
   return (
     <div className="contacts">
       <h1>{dataContacts.title}</h1>
-      {console.log(dataContacts)}
-      {dataContacts.socials.map((socials, index) => {
-        return (
-          <div key={index}>
-            <img src={dataContacts.iconsSocials} alt={socials.split(' ')[0]} />
-            <p>{}</p>
-          </div>
-        );
-      })}
+      <div className="wrapperIcons">
+        {dataContacts.iconsSocials.map((socials, index) => {
+          return <img key={index} src={socials} alt="" />;
+        })}
+      </div>
     </div>
   );
 };

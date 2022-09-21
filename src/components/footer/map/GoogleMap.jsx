@@ -8,13 +8,13 @@ const containerStyle = {
 };
 
 export const Map = ({ center }) => {
-  const mapRef = useRef(undefined);
+  const mapRef = useRef(null);
   const onLoad = useCallback(function callback(map) {
     mapRef.current = map;
   }, []);
 
   const onUnmount = useCallback(function callback(map) {
-    mapRef.current = undefined;
+    mapRef.current = null;
   }, []);
 
   return (

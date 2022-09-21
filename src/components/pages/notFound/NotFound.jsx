@@ -1,13 +1,17 @@
-import Header from '../../header/Header';
-import Footer from '../../footer/Footer';
+import { useNavigate } from 'react-router-dom';
+import './NotFound.scss';
 
 const NotFound = () => {
+  const navigate = useNavigate();
+  const handleClickHomePage = () => {
+    navigate('/', { replace: true });
+  };
   return (
-    <>
-      <Header />
-      NotFound
-      <Footer />
-    </>
+    <div className="WrapperNotFound">
+      <h1>404</h1>
+      <p>page not found</p>
+      <button onClick={handleClickHomePage}>Home page</button>
+    </div>
   );
 };
 export default NotFound;

@@ -1,0 +1,141 @@
+.main {
+  height: 100%;
+  width: 100%;
+
+  .nav {
+    display: grid;
+    grid-template-columns: 5fr 1.2fr;
+
+    .typesPizza {
+      display: flex;
+      gap: 30px;
+      margin: 10px;
+
+      .type {
+        padding: 10px;
+        border-radius: 10px;
+        background-color: gainsboro;
+        color: #282828;
+      }
+
+      .activeType {
+        padding: 10px;
+        border-radius: 10px;
+        background: #282828;
+        color: white;
+      }
+    }
+
+    .filter {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+      padding: 10px;
+      border-radius: 10px;
+
+      .selector {
+        color: orange;
+      }
+    }
+  }
+
+  .wrapperAllProducts {
+    h1 {
+      margin-bottom: 10px;
+      font-size: 25px;
+      padding: 10px;
+    }
+    .allProducts {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      justify-items: center;
+      justify-self: center;
+
+      .product {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid;
+        padding: 10px;
+
+        h2 {
+          font-size: 25px;
+          font-weight: 600;
+          margin-bottom: 10px;
+        }
+
+        img {
+          padding-left: 12px;
+        }
+        .specification {
+          background-color: gainsboro;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          border-radius: 10px;
+          padding: 5px;
+
+          .wrapperDough {
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+
+            .dough {
+              padding: 5px;
+              border-radius: 10px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background-color: white;
+              font-size: 19px;
+            }
+
+            .activeDough {
+              padding: 10px;
+              border-radius: 10px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background-color: white;
+            }
+          }
+
+          .sizes {
+            margin: 10px;
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+
+            .size {
+              padding: 8px;
+              border-radius: 10px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background-color: white;
+            }
+          }
+        }
+        .handlerOrder {
+          margin-top: 20px;
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+
+          .price {
+            font-size: 20px;
+            font-weight: bold;
+          }
+
+          .btnAddProducts {
+            padding: 5px;
+            color: orange;
+            box-shadow: 2px 2px 2px 2px rgba(1, 1, 1, 0.15);
+          }
+        }
+      }
+    }
+  }
+}

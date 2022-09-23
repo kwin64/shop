@@ -7,7 +7,6 @@ const Header = () => {
   const navigate = useNavigate();
 
   const handleClickRedirect = (path) => {
-    console.log(1);
     navigate(path, { replace: true });
   };
 

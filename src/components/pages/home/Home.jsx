@@ -1,10 +1,11 @@
 import Header from '../../header/Header';
 import Footer from '../../footer/Footer';
 import './home.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import pizzaImg from '../../../assets/image 2.png';
+import { observer } from 'mobx-react-lite';
 
-const Home = () => {
+const Home = observer(() => {
   const [active, setActive] = useState(false);
 
   return (
@@ -147,5 +148,5 @@ const Home = () => {
       <Footer />
     </>
   );
-};
+});
 export default Home;

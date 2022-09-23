@@ -2,6 +2,7 @@ import Header from '../../header/Header';
 import './Basket.scss';
 import basket from '../../../assets/header/basket.png';
 import removeLogo from '../../../assets/trash.svg';
+import pizza1 from '../../../assets/image 5.png';
 
 const Basket = () => {
   return (
@@ -21,28 +22,72 @@ const Basket = () => {
           </div>
 
           <div className="products">
-            <div>
-              <img src="" alt="" />
-              <div>
-                <p>Чизбургер-пицца</p>
-                <p>тонкое тесто, 30 см.</p>
-              </div>
-              <div>
-                <div>-</div>
-                <p>2</p>
-                <div>+</div>
-              </div>
-              <div>40p.</div>
-              <div>x</div>
+            <img src={pizza1} alt="" />
+            <div className="description">
+              <p className="title">Чизбургер-пицца</p>
+              <p className="compound">тонкое тесто, 30 см.</p>
             </div>
+            <div className="amount">
+              <div className="mark">-</div>
+              <p>2</p>
+              <div className="mark">+</div>
+            </div>
+            <div className="price">40p.</div>
+            <div className="delete">X</div>
           </div>
 
-          <div className="countProducts">
-            <p>Всего пицц: 3шт.</p>
+          <div className="products">
+            <img src={pizza1} alt="" />
+            <div className="description">
+              <p className="title">Чизбургер-пицца</p>
+              <p className="compound">тонкое тесто, 30 см.</p>
+            </div>
+            <div className="amount">
+              <div className="mark">-</div>
+              <p>2</p>
+              <div className="mark">+</div>
+            </div>
+            <div className="price">40p.</div>
+            <div className="delete">X</div>
           </div>
 
-          <div className="priceProducts">
-            <p>Сумма заказа: 120p.</p>
+          <div className="products">
+            <img src={pizza1} alt="" />
+            <div className="description">
+              <p className="title">Чизбургер-пицца</p>
+              <p className="compound">тонкое тесто, 30 см.</p>
+            </div>
+            <div className="amount">
+              <div className="mark">-</div>
+              <p>2</p>
+              <div className="mark">+</div>
+            </div>
+            <div className="price">40p.</div>
+            <div className="delete">X</div>
+          </div>
+
+          <div className="products">
+            <img src={pizza1} alt="" />
+            <div className="description">
+              <p className="title">Чизбургер-пицца</p>
+              <p className="compound">тонкое тесто, 30 см.</p>
+            </div>
+            <div className="amount">
+              <div className="mark">-</div>
+              <p>2</p>
+              <div className="mark">+</div>
+            </div>
+            <div className="price">40p.</div>
+            <div className="delete">X</div>
+          </div>
+
+          <div className="totals">
+            <div className="countProducts">
+              <p>Всего пицц: 3шт.</p>
+            </div>
+            <div className="priceProducts">
+              <p>Сумма заказа: 120p.</p>
+            </div>
           </div>
         </div>
       </div>

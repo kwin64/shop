@@ -7,7 +7,6 @@
   padding: 100px;
 
   .basketProducts {
-    border: 1px solid;
     height: 100%;
     background-color: #fff;
     padding: 20px;
@@ -19,6 +18,8 @@
       .wrapperBasket {
         display: flex;
         align-items: center;
+        gap: 10px;
+        font-size: 25px;
 
         img {
           width: 25px;
@@ -29,12 +30,76 @@
       .wrapperRemove {
         display: flex;
         align-items: center;
+        gap: 10px;
+        color: gray;
 
         img {
           width: 25px;
           height: 25px;
         }
       }
+    }
+
+    .products {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin: 40px 0;
+
+      .description {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 10px;
+        letter-spacing: 2px;
+
+        .title {
+          font-size: 20px;
+        }
+
+        .compound {
+          color: gray;
+        }
+      }
+
+      .amount {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .mark {
+          border: 1px solid;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          width: 30px;
+          height: 30px;
+        }
+      }
+      .price {
+        font-size: 25px;
+        font-weight: bold;
+        letter-spacing: 2px;
+      }
+
+      .delete {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 1px solid;
+        width: 30px;
+        height: 30px;
+        opacity: 0.3;
+      }
+    }
+
+    .totals {
+      display: flex;
+      font-size: 20px;
+      justify-content: space-between;
     }
   }
 }

@@ -1,5 +1,4 @@
-import axios from 'axios';
-import instance from './axiosInstance';
+import instance from './instance';
 
 const pizzaData = async () => {
   const data = await instance.get();

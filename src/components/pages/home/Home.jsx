@@ -1,9 +1,9 @@
-import Header from '../../header/Header';
-import Footer from '../../footer/Footer';
-import './home.scss';
-import { useEffect, useState } from 'react';
-import pizzaImg from '../../../assets/image 2.png';
 import { observer } from 'mobx-react-lite';
+import { useState } from 'react';
+import pizzaImg from '../../../assets/image 2.png';
+import Footer from '../../footer/Footer';
+import Header from '../../header/Header';
+import './home.scss';
 
 const Home = observer(() => {
   const [active, setActive] = useState(false);
@@ -63,6 +63,26 @@ const Home = observer(() => {
         <div className="wrapperAllProducts">
           <h1>All pizza</h1>
           <div className="allProducts">
+            <div className="product">
+              <img src={pizzaImg} alt="" />
+              <h2>Чизбургер-пицца</h2>
+              <div className="specification">
+                <div className="wrapperDough">
+                  <div className="dough">тонкое</div>
+                  <div className="dough">традиционное</div>
+                </div>
+                <div className="sizes">
+                  <div className="size">26 см</div>
+                  <div className="size">30 см</div>
+                  <div className="size">40 см</div>
+                </div>
+              </div>
+              <div className="handlerOrder">
+                <p className="price">100 p.</p>
+                <button className="btnAddProducts">Добавить</button>
+              </div>
+            </div>
+
             <div className="product">
               <img src={pizzaImg} alt="" />
               <h2>Чизбургер-пицца</h2>

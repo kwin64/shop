@@ -16,7 +16,6 @@ class Pizza {
     try {
       const data = await pizzaServices.pizzaData();
       this.setDataPizza(data);
-      console.log(data);
     } catch (error) {}
   }
 }

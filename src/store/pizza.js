@@ -3,6 +3,7 @@ import pizzaServices from '../services/pizza.services';
 
 class Pizza {
   pizzaData = null;
+  loading = false;
 
   constructor() {
     makeAutoObservable(this);
@@ -13,8 +14,10 @@ class Pizza {
   }
 
   async fetchDataPizza() {
+    this.loading = true;
     try {
       const data = await pizzaServices.pizzaData();
+      this.loading = false;
       this.setDataPizza(data);
     } catch (error) {}
   }

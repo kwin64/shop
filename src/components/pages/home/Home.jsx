@@ -28,17 +28,7 @@ const Home = observer(() => {
             <div className="allProducts">
               {pizzaData &&
                 pizzaData.pizzaData?.data.map((product) => {
-                  return (
-                    <Product
-                      id={product.id}
-                      key={product.id}
-                      imageUrl={product.imageUrl}
-                      title={product.title}
-                      types={product.types}
-                      sizes={product.sizes}
-                      price={product.price}
-                    />
-                  );
+                  return <Product {...product} />;
                 })}
             </div>
           </div>

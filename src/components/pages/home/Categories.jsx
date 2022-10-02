@@ -1,21 +1,14 @@
 import React from 'react';
 
-const Categories = () => {
-  const categories = ['все', 'вегетарианская', 'острая'];
-  const [active, setActive] = React.useState(null);
-
-  const setIndexHandler = (index) => {
-    setActive(index);
-  };
-
+const Categories = ({ categories, options, activeCategories, setIndexCategoriesHandler }) => {
   return (
     <div className="nav">
       <ul className="typesPizza">
         {categories.map((category, index) => (
           <li
-            className={active === index ? 'active' : ''}
+            className={activeCategories === index ? 'active' : ''}
             key={index}
-            onClick={() => setIndexHandler(index)}>
+            onClick={() => setIndexCategoriesHandler(index)}>
             {category}
           </li>
         ))}
@@ -23,9 +16,11 @@ const Categories = () => {
       <label className="filter">
         <p>Сортировка по:</p>
         <select name="" className="selector">
-          <option value="">популярности</option>
-          <option value="">цене</option>
-          <option value="">по алфавиту</option>
+          {options.map((option, index) => (
+            <option key={index} value="">
+              {option}
+            </option>
+          ))}
         </select>
       </label>
     </div>

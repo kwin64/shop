@@ -17,9 +17,11 @@ class Pizza {
     this.loading = true;
     try {
       const data = await pizzaServices.pizzaData();
-      this.loading = false;
       this.setDataPizza(data);
-    } catch (error) {}
+    } catch (error) {
+    } finally {
+      this.loading = false;
+    }
   }
 }
 export default new Pizza();

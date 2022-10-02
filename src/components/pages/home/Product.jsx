@@ -1,30 +1,26 @@
 import React from 'react';
 
-const Product = ({ id, imageUrl, title, types, sizes, price }) => {
-  const [activeSize, setActiveSize] = React.useState(null);
-  const [activeDough, setActiveDough] = React.useState(null);
-  const dough = ['традиционное', 'тонкое'];
-
-  const setIndexDoughHandler = (index) => {
-    setActiveDough(index);
-  };
-  const setIndexSizeHandler = (index) => {
-    setActiveSize(index);
-  };
-
+const Product = ({
+  product,
+  dough,
+  activeDough,
+  onClickCategoryHandler,
+  activeSize,
+  onClickSizeHandler,
+}) => {
   return (
-    <div className="product" key={id}>
-      <img src={imageUrl} alt="" />
-      <h2>{title}</h2>
+    <div className="product" key={product.id}>
+      <img src={product.imageUrl} alt="" />
+      <h2>{product.title}</h2>
       <div className="specification">
         <ul className="wrapperDough">
-          {types.length > 0 ? (
+          {product.types.length > 0 ? (
             <>
               {dough.map((type, index) => (
                 <li
                   key={index}
                   className={activeDough === index ? 'active' : 'dough'}
-                  onClick={() => setIndexDoughHandler(index)}>
+                  onClick={() => onClickCategoryHandler(index, product.category)}>
                   {type}
                 </li>
               ))}
@@ -34,18 +30,18 @@ const Product = ({ id, imageUrl, title, types, sizes, price }) => {
           )}
         </ul>
         <ul className="sizes">
-          {sizes.map((size, index) => (
+          {product.sizes.map((size, index) => (
             <li
               key={index}
               className={activeSize === index ? 'active' : 'size'}
-              onClick={() => setIndexSizeHandler(index)}>
+              onClick={() => onClickSizeHandler(index)}>
               {size} см.
             </li>
           ))}
         </ul>
       </div>
       <div className="handlerOrder">
-        <p className="price">{price} р.</p>
+        <p className="price">{product.price} р.</p>
         <button className="btnAddProducts">Добавить</button>
       </div>
     </div>

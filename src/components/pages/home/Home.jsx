@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import { useState } from 'react';
+import React from 'react';
 import pizzaData from '../../../store/pizza';
 import Footer from '../../footer/Footer';
 import Header from '../../header/Header';
@@ -8,13 +8,45 @@ import './home.scss';
 import Product from './Product';
 
 const Home = observer(() => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [listPerPage, setListPerPage] = useState(4);
+  const dough = ['традиционное', 'тонкое'];
+  const categories = ['все', 'вегетарианская', 'острая'];
+  const options = ['популярности', 'цене', 'по алфавиту'];
+  let categoryProducts;
 
-  const indexOfLastList = currentPage * listPerPage;
-  const indexOfFirstList = indexOfLastList - listPerPage;
-  const currentLists = pizzaData.pizzaData?.data.slice(indexOfFirstList, indexOfLastList);
+  const [activeDough, setActiveDough] = React.useState(null);
+  const [activeSize, setActiveSize] = React.useState(null);
+  const [activeCategories, setActiveCategories] = React.useState(0);
 
+  const [currentCategory, setCurrentCategory] = React.useState('all');
+
+  const onClickCategoryHandler = (index, category) => {
+    setActiveDough(index);
+  };
+
+  const onClickSizeHandler = (index) => {
+    setActiveSize(index);
+  };
+
+  const setIndexCategoriesHandler = (index) => {
+    setActiveCategories(index);
+    if (index === 0) {
+      setCurrentCategory('all');
+    } else if (index === 1) {
+      setCurrentCategory('veg');
+    } else if (index === 2) {
+      setCurrentCategory('hot');
+    }
+  };
+
+  if (pizzaData.pizzaData?.data) {
+    if (currentCategory === 'all') {
+      categoryProducts = pizzaData.pizzaData.data;
+    } else if (currentCategory === 'veg') {
+      categoryProducts = pizzaData.pizzaData.data.filter((item) => item.category === 1);
+    } else if (currentCategory === 'hot') {
+      categoryProducts = pizzaData.pizzaData.data.filter((item) => item.category === 2);
+    }
+  }
   return (
     <>
       <Header />
@@ -22,14 +54,27 @@ const Home = observer(() => {
         <div>...Loading</div>
       ) : (
         <div className="main">
-          <Categories />
+          <Categories
+            categories={categories}
+            options={options}
+            activeCategories={activeCategories}
+            setIndexCategoriesHandler={setIndexCategoriesHandler}
+          />
           <div className="wrapperAllProducts">
-            <h1>All pizza</h1>
             <div className="allProducts">
-              {pizzaData &&
-                pizzaData.pizzaData?.data.map((product) => {
-                  return <Product {...product} />;
-                })}
+              {categoryProducts?.map((product) => {
+                return (
+                  <Product
+                    product={product}
+                    key={product.id}
+                    dough={dough}
+                    activeDoug={activeDough}
+                    onClickCategoryHandler={onClickCategoryHandler}
+                    activeSize={activeSize}
+                    onClickSortHandler={onClickSizeHandler}
+                  />
+                );
+              })}
             </div>
           </div>
         </div>

@@ -19,8 +19,27 @@ const Home = observer(() => {
 
   const [currentCategory, setCurrentCategory] = React.useState('all');
 
-  const onClickCategoryHandler = (index, category) => {
+  const onClickCategoryHandler = (index) => {
     setActiveDough(index);
+  };
+
+  const onClickSortedHandler = (filterValue) => {
+    if (filterValue === 'по алфавиту') {
+      categoryProducts = pizzaData.pizzaData.data.sort((x, y) => {
+        if (x.title < y.title) {
+          return -1;
+        }
+        if (x.title > y.title) {
+          return 1;
+        }
+        return 0;
+      });
+    } else if (filterValue === 'цене') {
+      // categoryProducts = pizzaData.pizzaData.data;
+    } else if (filterValue === 'популярности') {
+      // categoryProducts = pizzaData.pizzaData.data;
+    }
+    console.log(categoryProducts);
   };
 
   const onClickSizeHandler = (index) => {
@@ -59,6 +78,7 @@ const Home = observer(() => {
             options={options}
             activeCategories={activeCategories}
             setIndexCategoriesHandler={setIndexCategoriesHandler}
+            onClickSortedHandler={onClickSortedHandler}
           />
           <div className="wrapperAllProducts">
             <div className="allProducts">

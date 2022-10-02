@@ -1,6 +1,12 @@
 import React from 'react';
 
-const Categories = ({ categories, options, activeCategories, setIndexCategoriesHandler }) => {
+const Categories = ({
+  categories,
+  options,
+  activeCategories,
+  setIndexCategoriesHandler,
+  onClickSortedHandler,
+}) => {
   return (
     <div className="nav">
       <ul className="typesPizza">
@@ -15,9 +21,12 @@ const Categories = ({ categories, options, activeCategories, setIndexCategoriesH
       </ul>
       <label className="filter">
         <p>Сортировка по:</p>
-        <select name="" className="selector">
+        <select
+          name=""
+          className="selector"
+          onChange={(e) => onClickSortedHandler(e.currentTarget.value)}>
           {options.map((option, index) => (
-            <option key={index} value="">
+            <option key={index} value={option}>
               {option}
             </option>
           ))}

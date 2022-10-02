@@ -35,11 +35,26 @@ const Home = observer(() => {
         return 0;
       });
     } else if (filterValue === 'цене') {
-      // categoryProducts = pizzaData.pizzaData.data;
+      categoryProducts = pizzaData.pizzaData.data.sort((x, y) => {
+        if (x.price < y.price) {
+          return -1;
+        }
+        if (x.title > y.title) {
+          return 1;
+        }
+        return 0;
+      });
     } else if (filterValue === 'популярности') {
-      // categoryProducts = pizzaData.pizzaData.data;
+      categoryProducts = pizzaData.pizzaData.data.sort((x, y) => {
+        if (x.rating > y.rating) {
+          return -1;
+        }
+        if (x.rating < y.rating) {
+          return 1;
+        }
+        return 0;
+      });
     }
-    console.log(categoryProducts);
   };
 
   const onClickSizeHandler = (index) => {

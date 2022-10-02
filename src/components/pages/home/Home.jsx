@@ -13,15 +13,8 @@ const Home = observer(() => {
   const options = ['популярности', 'цене', 'по алфавиту'];
   let categoryProducts;
 
-  const [activeDough, setActiveDough] = React.useState(null);
-  const [activeSize, setActiveSize] = React.useState(null);
   const [activeCategories, setActiveCategories] = React.useState(0);
-
   const [currentCategory, setCurrentCategory] = React.useState('all');
-
-  const onClickCategoryHandler = (index) => {
-    setActiveDough(index);
-  };
 
   const onClickSortedHandler = (filterValue) => {
     if (filterValue === 'по алфавиту') {
@@ -31,10 +24,6 @@ const Home = observer(() => {
     } else if (filterValue === 'популярности') {
       categoryProducts = pizzaData.pizzaData.data.sort((x, y) => (x.rating > y.rating ? -1 : 1));
     }
-  };
-
-  const onClickSizeHandler = (index) => {
-    setActiveSize(index);
   };
 
   const setIndexCategoriesHandler = (index) => {
@@ -74,17 +63,7 @@ const Home = observer(() => {
           <div className="wrapperAllProducts">
             <div className="allProducts">
               {categoryProducts?.map((product) => {
-                return (
-                  <Product
-                    product={product}
-                    key={product.id}
-                    dough={dough}
-                    activeDoug={activeDough}
-                    onClickCategoryHandler={onClickCategoryHandler}
-                    activeSize={activeSize}
-                    onClickSortHandler={onClickSizeHandler}
-                  />
-                );
+                return <Product product={product} key={product.id} dough={dough} />;
               })}
             </div>
           </div>

@@ -1,13 +1,15 @@
 import React from 'react';
 
-const Product = ({
-  product,
-  dough,
-  activeDough,
-  onClickCategoryHandler,
-  activeSize,
-  onClickSizeHandler,
-}) => {
+const Product = ({ product, dough }) => {
+  const [activeDough, setActiveDough] = React.useState(null);
+  const [activeSize, setActiveSize] = React.useState(null);
+
+  const onClickSizeHandler = (index) => {
+    setActiveSize(index);
+  };
+  const onClickDoughHandler = (index) => {
+    setActiveDough(index);
+  };
   return (
     <div className="product" key={product.id}>
       <img src={product.imageUrl} alt="" />
@@ -20,7 +22,7 @@ const Product = ({
                 <li
                   key={index}
                   className={activeDough === index ? 'active' : 'dough'}
-                  onClick={() => onClickCategoryHandler(index, product.category)}>
+                  onClick={() => onClickDoughHandler(index)}>
                   {type}
                 </li>
               ))}

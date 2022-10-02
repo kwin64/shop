@@ -13,14 +13,18 @@ class Pizza {
     this.pizzaData = data;
   }
 
+  setValueLoading(value) {
+    this.loading = value;
+  }
+
   async fetchDataPizza() {
-    this.loading = true;
+    this.setValueLoading(true);
     try {
       const data = await pizzaServices.pizzaData();
       this.setDataPizza(data);
     } catch (error) {
     } finally {
-      this.loading = false;
+      this.setValueLoading(false);
     }
   }
 }

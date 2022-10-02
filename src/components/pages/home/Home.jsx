@@ -25,35 +25,11 @@ const Home = observer(() => {
 
   const onClickSortedHandler = (filterValue) => {
     if (filterValue === 'по алфавиту') {
-      categoryProducts = pizzaData.pizzaData.data.sort((x, y) => {
-        if (x.title < y.title) {
-          return -1;
-        }
-        if (x.title > y.title) {
-          return 1;
-        }
-        return 0;
-      });
+      categoryProducts = pizzaData.pizzaData.data.sort((x, y) => (x.title < y.title ? -1 : 1));
     } else if (filterValue === 'цене') {
-      categoryProducts = pizzaData.pizzaData.data.sort((x, y) => {
-        if (x.price < y.price) {
-          return -1;
-        }
-        if (x.title > y.title) {
-          return 1;
-        }
-        return 0;
-      });
+      categoryProducts = pizzaData.pizzaData.data.sort((x, y) => (x.price < y.price ? -1 : 1));
     } else if (filterValue === 'популярности') {
-      categoryProducts = pizzaData.pizzaData.data.sort((x, y) => {
-        if (x.rating > y.rating) {
-          return -1;
-        }
-        if (x.rating < y.rating) {
-          return 1;
-        }
-        return 0;
-      });
+      categoryProducts = pizzaData.pizzaData.data.sort((x, y) => (x.rating > y.rating ? -1 : 1));
     }
   };
 

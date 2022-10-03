@@ -5,6 +5,7 @@ import Footer from '../../footer/Footer';
 import Header from '../../header/Header';
 import Categories from './Categories';
 import './home.scss';
+import Pagination from './Pagination';
 import Product from './Product';
 
 const Home = observer(() => {
@@ -17,6 +18,7 @@ const Home = observer(() => {
   const [currentCategory, setCurrentCategory] = React.useState('all');
 
   const onClickSortedHandler = (filterValue) => {
+    // pizzaData.loading(true);
     if (filterValue === 'по алфавиту') {
       categoryProducts = pizzaData.pizzaData.data.sort((x, y) => (x.title < y.title ? -1 : 1));
     } else if (filterValue === 'цене') {
@@ -67,6 +69,7 @@ const Home = observer(() => {
               })}
             </div>
           </div>
+          <Pagination data={categoryProducts} limit={4} />
         </div>
       )}
 

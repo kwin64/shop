@@ -2,5 +2,6 @@
   background-color: #c0c0c0;
   width: 100%;
   display: grid;
+  max-height: 200px;
   grid-template-columns: 1fr 2fr 1fr;
 }

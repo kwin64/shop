@@ -10,6 +10,7 @@ const Product = ({ product, dough }) => {
   const onClickDoughHandler = (index) => {
     setActiveDough(index);
   };
+
   return (
     <div className="product" key={product.id}>
       <img src={product.imageUrl} alt="" />

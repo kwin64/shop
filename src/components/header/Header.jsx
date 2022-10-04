@@ -2,8 +2,9 @@ import { useNavigate } from 'react-router-dom';
 import './Header.scss';
 import logo from '../../assets/header/logo.png';
 import basket from '../../assets/header/basket.png';
+import Search from './Search';
 
-const Header = () => {
+const Header = ({ inputValueSearch }) => {
   const navigate = useNavigate();
 
   const handleClickRedirect = (path) => {
@@ -15,6 +16,7 @@ const Header = () => {
       <div className="logo" onClick={() => handleClickRedirect('/')}>
         <img src={logo} alt="logo" />
       </div>
+      <Search inputValueSearch={inputValueSearch} />
       <div className="basket" onClick={() => handleClickRedirect('/basket')}>
         <p>
           {20000}

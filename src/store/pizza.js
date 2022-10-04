@@ -17,14 +17,24 @@ class Pizza {
     this.loading = value;
   }
 
-  async fetchDataPizza() {
+  async fetchDataPizza(value) {
     this.setValueLoading(true);
-    try {
-      const data = await pizzaServices.pizzaData();
-      this.setDataPizza(data);
-    } catch (error) {
-    } finally {
-      this.setValueLoading(false);
+    if (value) {
+      try {
+        const data = await pizzaServices.pizzaData(value);
+        this.setDataPizza(data);
+      } catch (error) {
+      } finally {
+        this.setValueLoading(false);
+      }
+    } else {
+      try {
+        const data = await pizzaServices.pizzaData();
+        this.setDataPizza(data);
+      } catch (error) {
+      } finally {
+        this.setValueLoading(false);
+      }
     }
   }
 }

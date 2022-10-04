@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import React from 'react';
+import React, { useEffect } from 'react';
 import pizzaData from '../../../store/pizza';
 import Footer from '../../footer/Footer';
 import Header from '../../header/Header';
@@ -16,9 +16,17 @@ const Home = observer(() => {
 
   const [activeCategories, setActiveCategories] = React.useState(0);
   const [currentCategory, setCurrentCategory] = React.useState('all');
+  const [inputValue, setInputValue] = React.useState(null);
+
+  useEffect(() => {
+    pizzaData.fetchDataPizza(inputValue);
+  }, [inputValue]);
+
+  const inputValueSearch = (value) => {
+    setInputValue(value);
+  };
 
   const onClickSortedHandler = (filterValue) => {
-    // pizzaData.loading(true);
     if (filterValue === 'по алфавиту') {
       categoryProducts = pizzaData.pizzaData.data.sort((x, y) => (x.title < y.title ? -1 : 1));
     } else if (filterValue === 'цене') {
@@ -50,7 +58,7 @@ const Home = observer(() => {
   }
   return (
     <>
-      <Header />
+      <Header inputValueSearch={inputValueSearch} />
       {pizzaData.loading ? (
         <div>...Loading</div>
       ) : (

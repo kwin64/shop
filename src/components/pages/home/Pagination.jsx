@@ -19,12 +19,6 @@ const Pagination = ({ data, limit }) => {
     setCurrentPage(pageNumber);
   }
 
-  const getPaginatedData = () => {
-    const startIndex = currentPage * limit - limit;
-    const endIndex = startIndex + limit;
-    return data.slice(startIndex, endIndex);
-  };
-
   const getPaginationGroup = () => {
     let start = Math.floor((currentPage - 1) / limit) * limit;
     return new Array(limit).fill().map((_, idx) => start + idx + 1);
@@ -37,12 +31,10 @@ const Pagination = ({ data, limit }) => {
   return (
     <div className="">
       <div className="pagination">
-        {/* previous button */}
         <button onClick={previousPage} className={`prev ${currentPage === 1 ? 'disabled' : ''}`}>
           prev
         </button>
 
-        {/* show page numbers */}
         {getPaginationGroup().map((item, index) => (
           <button
             key={index}

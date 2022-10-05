@@ -1,5 +1,4 @@
 import { GoogleMap } from '@react-google-maps/api';
-import './GoogleMap.scss';
 
 const containerStyle = {
   width: '100%',

@@ -11,8 +11,7 @@ const dataFooter = {
   dataSchedule: {
     title: 'Hours',
     days: [
-      'Sunday: Closed',
-      'Monday: Closed',
+      'Sunday, Monday: Closed',
       'Tuesday: 11 am  - 9 pm',
       'Wednesday: 11 am  - 9 pm',
       'Thursday: 11 am  - 9 pm',
@@ -21,7 +20,7 @@ const dataFooter = {
     ],
   },
   findUs: {
-    title: 'Find Us',
+    // title: 'Find Us',
     contacts: [
       'Address: 424 Front St, Chicopee, MA 01013',
       'Phone: 413-592-1715',

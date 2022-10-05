@@ -1,6 +1,7 @@
 .main {
   height: 100%;
   width: 100%;
+  position: relative;
 
   .nav {
     display: grid;
@@ -9,11 +10,11 @@
     .typesPizza {
       display: flex;
       gap: 30px;
-      margin: 10px;
+      margin: 5px;
 
       li {
         background-color: #f9f9f9;
-        padding: 13px 30px;
+        padding: 8px 20px;
         border-radius: 30px;
         margin-right: 10px;
         font-weight: bold;
@@ -40,7 +41,7 @@
       flex-direction: row;
       align-items: center;
       gap: 20px;
-      padding: 10px;
+      padding: 5px;
       border-radius: 10px;
 
       .selector {
@@ -50,11 +51,6 @@
   }
 
   .wrapperAllProducts {
-    h1 {
-      margin-bottom: 10px;
-      font-size: 25px;
-      padding: 10px;
-    }
     .allProducts {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -65,9 +61,12 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 10px;
-        width: 350px;
+        padding: 5px;
+        width: 310px;
         transition: all 0.3s ease;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         h2 {
           font-size: 25px;
@@ -175,6 +174,8 @@
     border: 1px solid;
     display: flex;
     flex-direction: row;
+    position: absolute;
+    bottom: 0;
 
     .page {
       border: 1px solid;

@@ -77,9 +77,6 @@ const Home = observer(() => {
     pages.push(i);
   }
 
-  console.log(currentPage);
-  console.log(pages);
-
   return (
     <>
       <Header inputValueSearch={inputValueSearch} />

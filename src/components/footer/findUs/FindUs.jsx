@@ -17,7 +17,6 @@ const FindUs = ({ dataFindUs }) => {
 
   return (
     <div className="findUs">
-      <h1 className="title">{dataFindUs.title}</h1>
       <div className="description">
         <div className="map">{isLoaded ? <Map center={defaultCenter} /> : 'Error loading'}</div>
         <div className="contacts">

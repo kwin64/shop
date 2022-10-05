@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import React, { useEffect } from 'react';
+import React from 'react';
 import pizzaData from '../../../store/pizza';
 import Footer from '../../footer/Footer';
 import Header from '../../header/Header';
@@ -12,13 +12,17 @@ const Home = observer(() => {
   const dough = ['традиционное', 'тонкое'];
   const categories = ['все', 'вегетарианская', 'острая', 'остальные'];
   const options = ['популярности', 'цене', 'по алфавиту'];
+  const limit = 4;
+  let pages = [];
   let categoryProducts;
 
   const [activeCategories, setActiveCategories] = React.useState(0);
   const [currentCategory, setCurrentCategory] = React.useState('all');
   const [inputValue, setInputValue] = React.useState(null);
 
-  useEffect(() => {
+  const [currentPage, setCurrentPage] = React.useState(0);
+
+  React.useEffect(() => {
     pizzaData.fetchDataPizza(inputValue);
   }, [inputValue]);
 
@@ -61,6 +65,16 @@ const Home = observer(() => {
         (item) => item.category !== 2 && item.category !== 5 && item.category !== 0,
       );
     }
+
+    let pagesCount = Math.ceil(categoryProducts.length / limit);
+
+    let start = limit * currentPage;
+    let end = start + limit;
+    categoryProducts = categoryProducts.slice(start, end);
+
+    for (let i = 1; i <= pagesCount; i++) {
+      pages.push(i);
+    }
   }
   return (
     <>
@@ -83,7 +97,7 @@ const Home = observer(() => {
               })}
             </div>
           </div>
-          <Pagination data={categoryProducts} limit={4} />
+          <Pagination pages={pages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
         </div>
       )}
 

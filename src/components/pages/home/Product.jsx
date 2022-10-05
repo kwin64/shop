@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Product = ({ product, dough }) => {
-  const [activeDough, setActiveDough] = React.useState(null);
-  const [activeSize, setActiveSize] = React.useState(null);
+  const [activeDough, setActiveDough] = React.useState(0);
+  const [activeSize, setActiveSize] = React.useState(0);
 
   const onClickSizeHandler = (index) => {
     setActiveSize(index);

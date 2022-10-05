@@ -10,7 +10,7 @@ import Product from './Product';
 
 const Home = observer(() => {
   const dough = ['традиционное', 'тонкое'];
-  const categories = ['все', 'вегетарианская', 'острая'];
+  const categories = ['все', 'вегетарианская', 'острая', 'остальные'];
   const options = ['популярности', 'цене', 'по алфавиту'];
   let categoryProducts;
 
@@ -44,6 +44,8 @@ const Home = observer(() => {
       setCurrentCategory('veg');
     } else if (index === 2) {
       setCurrentCategory('hot');
+    } else if (index === 3) {
+      setCurrentCategory('other');
     }
   };
 
@@ -51,9 +53,13 @@ const Home = observer(() => {
     if (currentCategory === 'all') {
       categoryProducts = pizzaData.pizzaData.data;
     } else if (currentCategory === 'veg') {
-      categoryProducts = pizzaData.pizzaData.data.filter((item) => item.category === 1);
+      categoryProducts = pizzaData.pizzaData.data.filter((item) => item.category === 5);
     } else if (currentCategory === 'hot') {
       categoryProducts = pizzaData.pizzaData.data.filter((item) => item.category === 2);
+    } else {
+      categoryProducts = pizzaData.pizzaData.data.filter(
+        (item) => item.category !== 2 && item.category !== 5 && item.category !== 0,
+      );
     }
   }
   return (

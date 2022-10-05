@@ -175,5 +175,10 @@
     border: 1px solid;
     display: flex;
     flex-direction: row;
+
+    .page {
+      border: 1px solid;
+      padding: 5px;
+    }
   }
 }

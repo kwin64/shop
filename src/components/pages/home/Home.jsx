@@ -65,17 +65,21 @@ const Home = observer(() => {
         (item) => item.category !== 2 && item.category !== 5 && item.category !== 0,
       );
     }
-
-    let pagesCount = Math.ceil(categoryProducts.length / limit);
-
-    let start = limit * currentPage;
-    let end = start + limit;
-    categoryProducts = categoryProducts.slice(start, end);
-
-    for (let i = 1; i <= pagesCount; i++) {
-      pages.push(i);
-    }
   }
+
+  let pagesCount = Math.ceil(categoryProducts?.length / limit);
+
+  let start = limit * currentPage;
+  let end = start + limit;
+  categoryProducts = categoryProducts?.slice(start, end);
+
+  for (let i = 0; i < pagesCount; i++) {
+    pages.push(i);
+  }
+
+  console.log(currentPage);
+  console.log(pages);
+
   return (
     <>
       <Header inputValueSearch={inputValueSearch} />

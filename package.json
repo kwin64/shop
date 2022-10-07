@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "http://kwin64.github.io/shop",
   "dependencies": {
-    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1"
@@ -38,6 +37,7 @@
   "devDependencies": {
     "@react-google-maps/api": "^2.12.2",
     "axios": "^0.27.2",
+    "gh-pages": "^4.0.0",
     "google-map-react": "^2.2.0",
     "mobx": "^6.6.2",
     "mobx-react-lite": "^3.4.0",

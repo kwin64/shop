@@ -9,18 +9,26 @@ import Pagination from './Pagination';
 import Product from './Product';
 
 const Home = observer(() => {
+  //state
+  let categoryProducts;
+
+  //const value
   const dough = ['традиционное', 'тонкое'];
   const categories = ['все', 'вегетарианская', 'острая', 'остальные'];
   const options = ['популярности', 'цене', 'по алфавиту'];
-  const limit = 4;
-  let pages = [];
-  let categoryProducts;
 
+  //sorting
   const [activeCategories, setActiveCategories] = React.useState(0);
   const [currentCategory, setCurrentCategory] = React.useState('all');
   const [inputValue, setInputValue] = React.useState(null);
 
+  //pagination
   const [currentPage, setCurrentPage] = React.useState(0);
+  const limit = 4;
+  let pages = [];
+
+  const [sumPriceProduct, setSumPriceProduct] = React.useState(0);
+  const [productsInBasket, setProductsInBasket] = React.useState([]);
 
   React.useEffect(() => {
     pizzaData.fetchDataPizza(inputValue);
@@ -53,7 +61,14 @@ const Home = observer(() => {
     }
   };
 
-  if (pizzaData.pizzaData?.data) {
+  const setSumInBasket = (id) => {};
+
+  const setProductInBasket = (product) => {
+    setProductsInBasket([...productsInBasket, product]);
+  };
+  console.log(productsInBasket);
+
+  if (pizzaData.pizzaData.data) {
     if (currentCategory === 'all') {
       categoryProducts = pizzaData.pizzaData.data;
     } else if (currentCategory === 'veg') {
@@ -67,19 +82,22 @@ const Home = observer(() => {
     }
   }
 
-  let pagesCount = Math.ceil(categoryProducts?.length / limit);
-
+  //pagination
+  let pagesCount = Math.ceil(categoryProducts.length / limit);
   let start = limit * currentPage;
   let end = start + limit;
-  categoryProducts = categoryProducts?.slice(start, end);
-
+  categoryProducts = categoryProducts.slice(start, end);
   for (let i = 0; i < pagesCount; i++) {
     pages.push(i);
   }
 
   return (
     <>
-      <Header inputValueSearch={inputValueSearch} />
+      <Header
+        inputValueSearch={inputValueSearch}
+        sumPriceProduct={sumPriceProduct}
+        countProduct={productsInBasket.length}
+      />
       {pizzaData.loading ? (
         <div>...Loading</div>
       ) : (
@@ -93,8 +111,16 @@ const Home = observer(() => {
           />
           <div className="wrapperAllProducts">
             <div className="allProducts">
-              {categoryProducts?.map((product) => {
-                return <Product product={product} key={product.id} dough={dough} />;
+              {categoryProducts.map((product) => {
+                return (
+                  <Product
+                    product={product}
+                    key={product.id}
+                    dough={dough}
+                    setSumInBasket={setSumInBasket}
+                    setProductInBasket={setProductInBasket}
+                  />
+                );
               })}
             </div>
           </div>

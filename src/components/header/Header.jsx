@@ -4,7 +4,7 @@ import logo from '../../assets/header/logo.png';
 import basket from '../../assets/header/basket.png';
 import Search from './Search';
 
-const Header = ({ inputValueSearch }) => {
+const Header = ({ inputValueSearch, sumPriceProduct, countProduct }) => {
   const navigate = useNavigate();
 
   const handleClickRedirect = (path) => {
@@ -19,11 +19,11 @@ const Header = ({ inputValueSearch }) => {
       <Search inputValueSearch={inputValueSearch} />
       <div className="basket" onClick={() => handleClickRedirect('/basket')}>
         <p>
-          {20000}
+          {sumPriceProduct}
           {'р.'}
         </p>
         <img src={basket} alt="basket" />
-        <p>{100}</p>
+        <p>{countProduct}</p>
       </div>
     </div>
   );

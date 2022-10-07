@@ -2,8 +2,9 @@ import { makeAutoObservable } from 'mobx';
 import pizzaServices from '../services/pizza.services';
 
 class Pizza {
-  pizzaData = null;
+  pizzaData = [];
   loading = false;
+  currentPizzaInBasket = [];
 
   constructor() {
     makeAutoObservable(this);

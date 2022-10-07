@@ -1,14 +1,21 @@
 import React from 'react';
 
-const Product = ({ product, dough }) => {
+const Product = ({ product, dough, setSumInBasket, setProductInBasket }) => {
   const [activeDough, setActiveDough] = React.useState(0);
   const [activeSize, setActiveSize] = React.useState(0);
+  const [count, setCount] = React.useState(0);
 
   const onClickSizeHandler = (index) => {
     setActiveSize(index);
   };
   const onClickDoughHandler = (index) => {
     setActiveDough(index);
+  };
+
+  const onClickAddProductInBasket = (id, product) => {
+    setSumInBasket(id);
+    setProductInBasket(product);
+    setCount(count + 1);
   };
 
   return (
@@ -45,7 +52,12 @@ const Product = ({ product, dough }) => {
       </div>
       <div className="handlerOrder">
         <p className="price">{product.price} р.</p>
-        <button className="btnAddProducts">Добавить</button>
+        <button
+          className="btnAddProducts"
+          onClick={() => onClickAddProductInBasket(product.id, product)}>
+          <h1>{count}</h1>
+          <p>Добавить</p>
+        </button>
       </div>
     </div>
   );

@@ -1,9 +1,12 @@
 import React from 'react';
+import Description from '../../modals/Description';
 
 const Product = ({ product, dough, setSumInBasket, setProductInBasket }) => {
   const [activeDough, setActiveDough] = React.useState(0);
   const [activeSize, setActiveSize] = React.useState(0);
   const [count, setCount] = React.useState(0);
+
+  const [openModal, setOpenModal] = React.useState(true);
 
   const onClickSizeHandler = (index) => {
     setActiveSize(index);

@@ -3,6 +3,7 @@ import React from 'react';
 import pizzaData from '../../../store/pizza';
 import Footer from '../../footer/Footer';
 import Header from '../../header/Header';
+import Description from '../../modals/Description';
 import Categories from './Categories';
 import './home.scss';
 import Pagination from './Pagination';
@@ -29,6 +30,7 @@ const Home = observer(() => {
 
   const [sumPriceProduct, setSumPriceProduct] = React.useState(0);
   const [productsInBasket, setProductsInBasket] = React.useState([]);
+  const [modalOpen, setModalOpen] = React.useState(true);
 
   React.useEffect(() => {
     pizzaData.fetchDataPizza(inputValue);
@@ -124,6 +126,7 @@ const Home = observer(() => {
               })}
             </div>
           </div>
+          {modalOpen && <Description setModalOpen={setModalOpen} />}
           <Pagination pages={pages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
         </div>
       )}

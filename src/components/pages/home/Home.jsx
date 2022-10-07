@@ -10,7 +10,7 @@ import Product from './Product';
 
 const Home = observer(() => {
   //state
-  let categoryProducts;
+  let categoryProducts = [];
 
   //const value
   const dough = ['традиционное', 'тонкое'];

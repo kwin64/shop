@@ -1,11 +1,9 @@
+import { observer } from 'mobx-react-lite';
+import basket from '../../../assets/header/basket.png';
+import pizza1 from '../../../assets/image 5.png';
+import removeLogo from '../../../assets/trash.svg';
 import Header from '../../header/Header';
 import './Basket.scss';
-import basket from '../../../assets/header/basket.png';
-import removeLogo from '../../../assets/trash.svg';
-import pizza1 from '../../../assets/image 5.png';
-import { observer } from 'mobx-react-lite';
-import { useEffect } from 'react';
-import pizza from '../../../store/pizza';
 
 const Basket = observer(() => {
   return (

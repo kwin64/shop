@@ -66,11 +66,12 @@
         flex-direction: column;
         align-items: center;
         padding: 5px;
-        width: 400px;
+        width: 500px;
         transition: all 0.3s ease;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        margin-top: 70px;
 
         h2 {
           font-size: 25px;
@@ -178,14 +179,34 @@
     display: flex;
     flex-direction: row;
     position: absolute;
-    bottom: 10px;
-    border: 1px solid;
-    left: 10px;
+    bottom: 50px;
+    left: 50px;
 
     .page {
-      border: 1px solid;
-      padding: 5px;
+      border: 1px solid orange;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 25px;
+      padding: 10px;
+      margin: 10px;
       cursor: pointer;
+      text-align: center;
+      vertical-align: middle;
+    }
+    .active {
+      border: 1px solid orange;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 25px;
+      padding: 10px;
+      margin: 10px;
+      cursor: pointer;
+      text-align: center;
+      vertical-align: middle;
+      background-color: orange;
+      color: white;
     }
   }
 }

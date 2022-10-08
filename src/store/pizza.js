@@ -4,7 +4,6 @@ import pizzaServices from '../services/pizza.services';
 class Pizza {
   pizzaData = [];
   loading = false;
-  currentPizzaInBasket = [];
   descriptionPizza = '';
   currentProductsInBasket = [];
 
@@ -26,11 +25,6 @@ class Pizza {
 
   setProductsInBasket(data) {
     this.currentProductsInBasket = [...this.currentProductsInBasket, data];
-    console.log(this.currentProductsInBasket);
-  }
-
-  setCurrentPizzaInBasket(data) {
-    this.currentPizzaInBasket = data;
   }
 
   async fetchDataPizza(value) {

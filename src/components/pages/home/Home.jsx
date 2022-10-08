@@ -28,8 +28,6 @@ const Home = observer(() => {
   const limit = 4;
   let pages = [];
 
-  const [sumPriceProduct, setSumPriceProduct] = React.useState(0);
-  const [productsInBasket, setProductsInBasket] = React.useState([]);
   const [modalOpen, setModalOpen] = React.useState(false);
 
   React.useEffect(() => {
@@ -70,7 +68,6 @@ const Home = observer(() => {
 
   const setProductInBasket = (product) => {
     pizzaData.setProductsInBasket(product);
-    // setProductsInBasket([...productsInBasket, product]);
   };
 
   if (pizzaData.pizzaData.data) {
@@ -98,7 +95,7 @@ const Home = observer(() => {
 
   return (
     <>
-      <Header inputValueSearch={inputValueSearch} sumPriceProduct={sumPriceProduct} />
+      <Header inputValueSearch={inputValueSearch} />
       {pizzaData.loading ? (
         <div>...Loading</div>
       ) : (

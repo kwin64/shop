@@ -1,19 +1,23 @@
-import { useNavigate } from 'react-router-dom';
-import './Header.scss';
-import logo from '../../assets/header/logo.png';
-import basket from '../../assets/header/basket.png';
-import Search from './Search';
-import pizzaData from '../../store/pizza';
 import { observer } from 'mobx-react-lite';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import basket from '../../assets/header/basket.png';
+import logo from '../../assets/header/logo.png';
+import pizzaData from '../../store/pizza';
+import './Header.scss';
+import Search from './Search';
 
-const Header = observer(({ inputValueSearch, sumPriceProduct, countProduct }) => {
+const Header = observer(({ inputValueSearch }) => {
+  const [sumPriceProduct, setSumPriceProduct] = React.useState(0);
   const navigate = useNavigate();
-
-  console.log(pizzaData.currentProductsInBasket.length);
 
   const handleClickRedirect = (path) => {
     navigate(path, { replace: true });
   };
+
+  const sumPrices = pizzaData.currentProductsInBasket
+    .map((product) => product.price)
+    .reduce((sum, value) => sum + value, 0);
 
   return (
     <div className="header">
@@ -23,7 +27,7 @@ const Header = observer(({ inputValueSearch, sumPriceProduct, countProduct }) =>
       <Search inputValueSearch={inputValueSearch} />
       <div className="basket" onClick={() => handleClickRedirect('/basket')}>
         <p>
-          {sumPriceProduct}
+          {sumPrices}
           {'р.'}
         </p>
         <img src={basket} alt="basket" />

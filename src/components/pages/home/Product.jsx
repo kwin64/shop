@@ -1,12 +1,9 @@
 import React from 'react';
-import Description from '../../modals/Description';
 
-const Product = ({ product, dough, setSumInBasket, setProductInBasket }) => {
+const Product = ({ product, dough, setProductInBasket, openDescriptionPizza }) => {
   const [activeDough, setActiveDough] = React.useState(0);
   const [activeSize, setActiveSize] = React.useState(0);
   const [count, setCount] = React.useState(0);
-
-  const [openModal, setOpenModal] = React.useState(true);
 
   const onClickSizeHandler = (index) => {
     setActiveSize(index);
@@ -14,16 +11,18 @@ const Product = ({ product, dough, setSumInBasket, setProductInBasket }) => {
   const onClickDoughHandler = (index) => {
     setActiveDough(index);
   };
-
-  const onClickAddProductInBasket = (id, product) => {
-    setSumInBasket(id);
+  const onClickAddProductInBasket = (product) => {
     setProductInBasket(product);
     setCount(count + 1);
   };
 
   return (
     <div className="product" key={product.id}>
-      <img src={product.imageUrl} alt="" />
+      <img
+        src={product.imageUrl}
+        alt="product"
+        onClick={() => openDescriptionPizza(product.description)}
+      />
       <h2>{product.title}</h2>
       <div className="specification">
         <ul className="wrapperDough">
@@ -55,9 +54,7 @@ const Product = ({ product, dough, setSumInBasket, setProductInBasket }) => {
       </div>
       <div className="handlerOrder">
         <p className="price">{product.price} р.</p>
-        <button
-          className="btnAddProducts"
-          onClick={() => onClickAddProductInBasket(product.id, product)}>
+        <button className="btnAddProducts" onClick={() => onClickAddProductInBasket(product)}>
           <h1>{count}</h1>
           <p>Добавить</p>
         </button>

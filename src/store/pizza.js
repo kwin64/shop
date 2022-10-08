@@ -5,6 +5,8 @@ class Pizza {
   pizzaData = [];
   loading = false;
   currentPizzaInBasket = [];
+  descriptionPizza = '';
+  currentProductsInBasket = [];
 
   constructor() {
     makeAutoObservable(this);
@@ -16,6 +18,19 @@ class Pizza {
 
   setValueLoading(value) {
     this.loading = value;
+  }
+
+  setDescription(data) {
+    this.descriptionPizza = data;
+  }
+
+  setProductsInBasket(data) {
+    this.currentProductsInBasket = [...this.currentProductsInBasket, data];
+    console.log(this.currentProductsInBasket);
+  }
+
+  setCurrentPizzaInBasket(data) {
+    this.currentPizzaInBasket = data;
   }
 
   async fetchDataPizza(value) {

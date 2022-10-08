@@ -3,9 +3,13 @@ import './Header.scss';
 import logo from '../../assets/header/logo.png';
 import basket from '../../assets/header/basket.png';
 import Search from './Search';
+import pizzaData from '../../store/pizza';
+import { observer } from 'mobx-react-lite';
 
-const Header = ({ inputValueSearch, sumPriceProduct, countProduct }) => {
+const Header = observer(({ inputValueSearch, sumPriceProduct, countProduct }) => {
   const navigate = useNavigate();
+
+  console.log(pizzaData.currentProductsInBasket.length);
 
   const handleClickRedirect = (path) => {
     navigate(path, { replace: true });
@@ -23,9 +27,9 @@ const Header = ({ inputValueSearch, sumPriceProduct, countProduct }) => {
           {'р.'}
         </p>
         <img src={basket} alt="basket" />
-        <p>{countProduct}</p>
+        <p>{pizzaData.currentProductsInBasket.length}</p>
       </div>
     </div>
   );
-};
+});
 export default Header;

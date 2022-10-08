@@ -30,7 +30,7 @@ const Home = observer(() => {
 
   const [sumPriceProduct, setSumPriceProduct] = React.useState(0);
   const [productsInBasket, setProductsInBasket] = React.useState([]);
-  const [modalOpen, setModalOpen] = React.useState(true);
+  const [modalOpen, setModalOpen] = React.useState(false);
 
   React.useEffect(() => {
     pizzaData.fetchDataPizza(inputValue);
@@ -63,12 +63,15 @@ const Home = observer(() => {
     }
   };
 
-  const setSumInBasket = (id) => {};
+  const openDescriptionPizza = (description) => {
+    pizzaData.setDescription(description);
+    setModalOpen(true);
+  };
 
   const setProductInBasket = (product) => {
-    setProductsInBasket([...productsInBasket, product]);
+    pizzaData.setProductsInBasket(product);
+    // setProductsInBasket([...productsInBasket, product]);
   };
-  console.log(productsInBasket);
 
   if (pizzaData.pizzaData.data) {
     if (currentCategory === 'all') {
@@ -95,11 +98,7 @@ const Home = observer(() => {
 
   return (
     <>
-      <Header
-        inputValueSearch={inputValueSearch}
-        sumPriceProduct={sumPriceProduct}
-        countProduct={productsInBasket.length}
-      />
+      <Header inputValueSearch={inputValueSearch} sumPriceProduct={sumPriceProduct} />
       {pizzaData.loading ? (
         <div>...Loading</div>
       ) : (
@@ -119,8 +118,8 @@ const Home = observer(() => {
                     product={product}
                     key={product.id}
                     dough={dough}
-                    setSumInBasket={setSumInBasket}
                     setProductInBasket={setProductInBasket}
+                    openDescriptionPizza={openDescriptionPizza}
                   />
                 );
               })}

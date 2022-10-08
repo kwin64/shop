@@ -8,7 +8,6 @@ import './Header.scss';
 import Search from './Search';
 
 const Header = observer(({ inputValueSearch }) => {
-  const [sumPriceProduct, setSumPriceProduct] = React.useState(0);
   const navigate = useNavigate();
 
   const handleClickRedirect = (path) => {
